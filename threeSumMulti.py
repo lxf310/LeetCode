@@ -28,6 +28,7 @@ class Solution(object):
                 else:
                     # 考虑重复的元素
                     if A[l] == A[r]:
+                        # C(r-l),2
                         ret = (ret + (r-l+1)*(r-l)/2) % MOD
                         break
                     else:
