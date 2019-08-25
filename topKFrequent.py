@@ -31,10 +31,11 @@ class Solution(object):
                     j -= 1
             self.array[j] = pivot
             
-            if i > k and left < i-1:
-                getIndex(left, i-1)
-            elif i < k and right > i+1:
-                getIndex(i+1, right)
+            # the split point is j
+            if j > k and left < j-1:
+                getIndex(left, j-1)
+            elif j < k and right > j+1:
+                getIndex(j+1, right)
         
         
         numDict = {}
