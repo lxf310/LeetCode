@@ -45,3 +45,33 @@ class Solution(object):
         for i in range(1, len(nums)):
             ret ^= nums[i]
         return ret
+
+
+
+"""
+https://leetcode-cn.com/problems/counting-bits/submissions/
+"""
+class Solution(object):
+    def countBits(self, num):
+        """
+        :type num: int
+        :rtype: List[int]
+        """
+        res = [0 for _ in range(num+1)]
+        for i in range(num+1):
+            """
+            " Observation:
+            "   0 => 0
+            "   1 => 1
+            "  10 => 2
+            "  11 => 3
+            " 100 => 4
+            " 101 => 5
+            " 110 => 6
+            " 111 => 7
+            "
+            " 6 >> 1 => 3
+            " 7 >> 1 => 3
+            """
+            res[i] = res[i>>1] + (i&1)
+        return res
